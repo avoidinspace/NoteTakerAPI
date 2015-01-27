@@ -5,6 +5,7 @@ gem 'rails-api'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jbuilder'
 gem 'unicorn'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development do
   gem 'spring'
