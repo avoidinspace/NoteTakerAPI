@@ -6,13 +6,13 @@ class Api::V1::NotesController < ApplicationController
   def index
     @notes = Note.all
 
-    render json: @notes
+    render json: {notes: @notes}
   end
 
   # GET /notes/1
   # GET /notes/1.json
   def show
-    render json: @note
+    render json: {note: @note}
   end
 
   # POST /notes
@@ -21,7 +21,7 @@ class Api::V1::NotesController < ApplicationController
     @note = Note.new(note_params)
 
     if @note.save
-      render json: @note, status: :created, location: api_v1_note_url(@note)
+      render json: {note: @note}, status: :created, location: api_v1_note_url(@note)
     else
       render json: @note.errors, status: :unprocessable_entity
     end
@@ -33,6 +33,7 @@ class Api::V1::NotesController < ApplicationController
     @note = Note.find(params[:id])
 
     if @note.update(note_params)
+      render json: {note: @note}, status: :accepted, location: api_v1_note_url(@note)
       head :no_content
     else
       render json: @note.errors, status: :unprocessable_entity
