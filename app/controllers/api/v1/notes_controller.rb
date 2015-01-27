@@ -55,6 +55,7 @@ class Api::V1::NotesController < ApplicationController
     end
 
     def note_params
-      params.permit(:title, :content)
+      r = params[:note].nil? ? params : params.require(:note)
+      r.permit(:title, :content)
     end
 end
