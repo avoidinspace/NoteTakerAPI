@@ -34,7 +34,6 @@ class Api::V1::NotesController < ApplicationController
 
     if @note.update(note_params)
       render json: {note: @note}, status: :accepted, location: api_v1_note_url(@note)
-      head :no_content
     else
       render json: @note.errors, status: :unprocessable_entity
     end
