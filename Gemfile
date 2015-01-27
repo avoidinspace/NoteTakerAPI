@@ -9,6 +9,9 @@ gem 'unicorn'
 group :development do
   gem 'spring'
   gem 'sqlite3'
+  gem 'rubocop', '~> 0.28.0'
+  gem 'cane', '~> 2.6.2'
+  gem 'simplecov', '~> 0.9.1'
 end
 
 group :test do
